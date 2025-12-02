@@ -1,0 +1,17 @@
+{
+	"expo": {
+		"scheme": "teste-final-bible",
+		"userInterfaceStyle": "automatic",
+		"orientation": "default",
+		"web": {
+			"bundler": "metro"
+		},
+		"name": "teste-final-bible",
+		"slug": "teste-final-bible",
+		"plugins": ["expo-font"],
+		"experiments": {
+			"typedRoutes": true,
+			"reactCompiler": true
+		}
+	}
+}
