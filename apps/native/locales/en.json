@@ -1,0 +1,143 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "save": "Save",
+    "saved": "Saved",
+    "share": "Share",
+    "back": "Back",
+    "home": "Home",
+    "search": "Search",
+    "settings": "Settings",
+    "user": "User"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signInToAccount": "Sign in to your account",
+    "createAccount": "Create your account",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "enterEmail": "Enter your email",
+    "enterPassword": "Enter your password",
+    "enterName": "Enter your name",
+    "fillAllFields": "Please fill in all fields",
+    "signInFailed": "Failed to sign in",
+    "signUpFailed": "Failed to sign up",
+    "dontHaveAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "termsOfUse": "Terms of Use",
+    "privacyPolicy": "Privacy Policy",
+    "forgotPassword": "Forgot Password",
+    "helpCenter": "Help Center"
+  },
+  "verseOfDay": {
+    "title": "Verse of Day",
+    "verseOfDay": "Verse of Day",
+    "savedSuccess": "Devotional saved successfully!",
+    "unsavedSuccess": "Devotional removed from saved successfully!",
+    "saveError": "Error saving/removing devotional",
+    "shareError": "Error sharing devotional"
+  },
+  "home": {
+    "contextChapter": "Context Chapter",
+    "whatDoesMean": "What does {{reference}} mean?",
+    "greetingMorning": "Good morning,",
+    "greetingAfternoon": "Good afternoon,",
+    "greetingEvening": "Good evening,"
+  },
+  "settings": {
+    "appSettings": "App Settings",
+    "language": "Language",
+    "portuguese": "Português (Brasil)",
+    "english": "English (US)",
+    "portugueseDescription": "Interface em português",
+    "englishDescription": "App interface in English",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "lightDescription": "Interface in light mode",
+    "darkDescription": "Interface in dark mode",
+    "notifications": "Daily Verse Notifications",
+    "notificationsDescription": "Receive notifications when the daily verse is available",
+    "whenReceiveNotification": "When to receive the notification?",
+    "instantly": "Instantly",
+    "instantlyDescription": "Receive as soon as the verse is available",
+    "scheduled": "At scheduled time",
+    "scheduledDescription": "Choose a specific time",
+    "notificationTime": "Notification time",
+    "chooseTime": "Choose the time",
+    "logout": "Logout",
+    "logoutDescription": "Sign out of your account"
+  },
+  "saved": {
+    "title": "Saved Verses",
+    "subtitle": "Your favorite verses in one place",
+    "dailyVerses": "Daily Verses",
+    "searchVerses": "Search Verses",
+    "noDailyVerses": "No daily verses saved yet.",
+    "noSearchVerses": "No search verses saved yet.",
+    "removedSuccess": "Daily verse removed from favorites!",
+    "verseRemovedSuccess": "Verse removed from favorites!",
+    "removeError": "Error removing daily verse",
+    "verseRemoveError": "Error removing verse",
+    "shareError": "Error sharing verse"
+  },
+  "devotional": {
+    "dailyDevotional": "Daily Devotional",
+    "loadingDevotional": "Loading devotional...",
+    "noDevotionalAvailable": "No devotional available",
+    "fetchDevotionalMessage": "Tap the button above to fetch today's devotional",
+    "updateManually": "Update Manually (Test)",
+    "updateSuccess": "Devotional updated successfully!",
+    "updateError": "Error fetching devotional",
+    "shareError": "Error sharing",
+    "removeSuccess": "Devotional removed from saved",
+    "saveSuccess": "Devotional saved successfully!",
+    "saveError": "Error saving/removing devotional"
+  },
+  "todos": {
+    "title": "Todo List",
+    "addTask": "Add a new task...",
+    "loading": "Loading todos...",
+    "noTodos": "No todos yet",
+    "noTodosDescription": "Add your first task to get started!",
+    "deleteTodo": "Delete Todo",
+    "deleteConfirm": "Are you sure you want to delete this todo?"
+  },
+  "tabs": {
+    "home": "Home",
+    "search": "Search",
+    "saved": "Saved",
+    "settings": "Settings"
+  },
+  "months": {
+    "jan": "Jan",
+    "feb": "Feb",
+    "mar": "Mar",
+    "apr": "Apr",
+    "may": "May",
+    "jun": "Jun",
+    "jul": "Jul",
+    "aug": "Aug",
+    "sep": "Sep",
+    "oct": "Oct",
+    "nov": "Nov",
+    "dec": "Dec"
+  },
+  "weekdays": {
+    "sunday": "Sunday",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday"
+  }
+}
+
+

@@ -1,0 +1,11 @@
+{
+  "plugins": [
+    "expo-build-properties"
+  ],
+  "ios": {
+    "bundleIdentifier": "com.anonymous.teste-final-bible"
+  },
+  "android": {
+    "package": "com.anonymous.testefinalbible"
+  }
+}

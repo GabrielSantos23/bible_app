@@ -31,6 +31,31 @@ bun run dev:setup
 
 Follow the prompts to create a new Convex project and connect it to your application.
 
+### Configurar Variáveis de Ambiente do Better Auth
+
+Após configurar o Convex, você precisa definir as seguintes variáveis de ambiente no dashboard do Convex:
+
+1. Acesse o [Dashboard do Convex](https://dashboard.convex.dev)
+2. Selecione seu projeto
+3. Vá em **Settings** → **Environment Variables**
+4. Adicione as seguintes variáveis:
+
+   - **`BETTER_AUTH_SECRET`**: Uma string secreta aleatória para criptografia (recomendado: use um gerador de secrets, como `openssl rand -base64 32`)
+   - **`CONVEX_SITE_URL`**: A URL do seu site Convex (geralmente algo como `https://your-project.convex.site`)
+
+   Você também pode configurar via CLI do Convex:
+
+   ```bash
+   npx convex env set BETTER_AUTH_SECRET "seu-secret-aqui"
+   npx convex env set CONVEX_SITE_URL "https://seu-projeto.convex.site"
+   ```
+
+   **Nota**: O `CONVEX_SITE_URL` geralmente é configurado automaticamente pelo Convex. Verifique no dashboard se já existe.
+
+5. (Opcional) Para desenvolvimento local, você também pode configurar:
+   - **`NATIVE_APP_URL`**: URL do seu app nativo (padrão: `mybettertapp://`)
+   - **`EXPO_URL`**: URL do Expo (padrão: `exp://192.168.15.2:8081`)
+
 Then, run the development server:
 
 ```bash

@@ -8,7 +8,13 @@
 		},
 		"name": "teste-final-bible",
 		"slug": "teste-final-bible",
-		"plugins": ["expo-font"],
+		"plugins": ["expo-font", "react-native-bottom-tabs", [
+			"expo-build-properties", {
+				"ios": {
+					"useFramework": "static"
+				}
+			}
+		]],
 		"experiments": {
 			"typedRoutes": true,
 			"reactCompiler": true

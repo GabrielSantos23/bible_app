@@ -13,9 +13,12 @@
     "typescript": "^5.9.2"
   },
   "dependencies": {
-    "convex": "catalog:",
-    "better-auth": "catalog:",
+    "@ai-sdk/google": "^2.0.44",
+    "@better-auth/expo": "catalog:",
     "@convex-dev/better-auth": "catalog:",
-    "@better-auth/expo": "catalog:"
+    "ai": "^5.0.106",
+    "better-auth": "catalog:",
+    "convex": "catalog:",
+    "zod": "^4.1.13"
   }
 }

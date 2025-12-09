@@ -1,7 +1,10 @@
-import React, { createContext, useCallback, useContext, useMemo } from "react";
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { Uniwind, useUniwind } from "uniwind";
+import * as SecureStore from "expo-secure-store";
 
 type ThemeName = "light" | "dark";
+
+const THEME_STORAGE_KEY = "app_theme_preference";
 
 type AppThemeContextType = {
 	currentTheme: string;
@@ -21,6 +24,25 @@ export const AppThemeProvider = ({
 	children: React.ReactNode;
 }) => {
 	const { theme } = useUniwind();
+	const [isInitialized, setIsInitialized] = useState(false);
+
+	// Carregar tema salvo na inicialização
+	useEffect(() => {
+		const loadSavedTheme = async () => {
+			try {
+				const savedTheme = await SecureStore.getItemAsync(THEME_STORAGE_KEY);
+				if (savedTheme && (savedTheme === "light" || savedTheme === "dark")) {
+					Uniwind.setTheme(savedTheme as ThemeName);
+				}
+			} catch (error) {
+				console.error("Erro ao carregar tema salvo:", error);
+			} finally {
+				setIsInitialized(true);
+			}
+		};
+
+		loadSavedTheme();
+	}, []);
 
 	const isLight = useMemo(() => {
 		return theme === "light";
@@ -30,12 +52,23 @@ export const AppThemeProvider = ({
 		return theme === "dark";
 	}, [theme]);
 
-	const setTheme = useCallback((newTheme: ThemeName) => {
+	const setTheme = useCallback(async (newTheme: ThemeName) => {
 		Uniwind.setTheme(newTheme);
+		try {
+			await SecureStore.setItemAsync(THEME_STORAGE_KEY, newTheme);
+		} catch (error) {
+			console.error("Erro ao salvar tema:", error);
+		}
 	}, []);
 
-	const toggleTheme = useCallback(() => {
-		Uniwind.setTheme(theme === "light" ? "dark" : "light");
+	const toggleTheme = useCallback(async () => {
+		const newTheme = theme === "light" ? "dark" : "light";
+		Uniwind.setTheme(newTheme);
+		try {
+			await SecureStore.setItemAsync(THEME_STORAGE_KEY, newTheme);
+		} catch (error) {
+			console.error("Erro ao salvar tema:", error);
+		}
 	}, [theme]);
 
 	const value = useMemo(

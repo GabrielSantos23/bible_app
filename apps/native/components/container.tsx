@@ -1,4 +1,5 @@
 import { cn } from "heroui-native";
+import { useThemeColor } from "heroui-native";
 import { type PropsWithChildren } from "react";
 import { ScrollView, View, type ViewProps } from "react-native";
 import Animated, { type AnimatedProps } from "react-native-reanimated";
@@ -16,16 +17,21 @@ export function Container({
 	...props
 }: PropsWithChildren<Props>) {
 	const insets = useSafeAreaInsets();
+	const backgroundColor = useThemeColor("background");
 
 	return (
 		<AnimatedView
-			className={cn("flex-1 bg-background", className)}
+			className={cn("flex-1 bg-neutral-950", className)}
 			style={{
 				paddingBottom: insets.bottom,
 			}}
 			{...props}
 		>
-			<ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+			<ScrollView 
+				className="flex-1"
+				style={{ backgroundColor }}
+				contentContainerStyle={{ flexGrow: 1 }}
+			>
 				{children}
 			</ScrollView>
 		</AnimatedView>

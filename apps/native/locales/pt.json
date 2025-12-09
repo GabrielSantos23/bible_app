@@ -1,0 +1,143 @@
+{
+  "common": {
+    "loading": "Carregando...",
+    "error": "Erro",
+    "success": "Sucesso",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "save": "Salvar",
+    "saved": "Salvo",
+    "share": "Compartilhar",
+    "back": "Voltar",
+    "home": "Início",
+    "search": "Buscar",
+    "settings": "Configurações",
+    "user": "Usuário"
+  },
+  "auth": {
+    "signIn": "Entrar",
+    "signUp": "Cadastrar",
+    "signInToAccount": "Entre na sua conta",
+    "createAccount": "Crie sua conta",
+    "email": "E-mail",
+    "password": "Senha",
+    "name": "Nome",
+    "enterEmail": "Digite seu e-mail",
+    "enterPassword": "Digite sua senha",
+    "enterName": "Digite seu nome",
+    "fillAllFields": "Por favor, preencha todos os campos",
+    "signInFailed": "Falha ao entrar",
+    "signUpFailed": "Falha ao cadastrar",
+    "dontHaveAccount": "Não tem uma conta?",
+    "alreadyHaveAccount": "Já tem uma conta?",
+    "termsOfUse": "Termos de Uso",
+    "privacyPolicy": "Política de Privacidade",
+    "forgotPassword": "Esqueceu a senha",
+    "helpCenter": "Central de Ajuda"
+  },
+  "verseOfDay": {
+    "title": "Verso do Dia",
+    "verseOfDay": "Verso do Dia",
+    "savedSuccess": "Devocional salvo com sucesso!",
+    "unsavedSuccess": "Devocional removido dos salvos com sucesso!",
+    "saveError": "Erro ao salvar/remover devocional",
+    "shareError": "Erro ao compartilhar devocional"
+  },
+  "home": {
+    "contextChapter": "Capítulo do Contexto",
+    "whatDoesMean": "O que significa {{reference}}?",
+    "greetingMorning": "Bom dia,",
+    "greetingAfternoon": "Boa tarde,",
+    "greetingEvening": "Boa noite,"
+  },
+  "settings": {
+    "appSettings": "Configurações do App",
+    "language": "Idioma",
+    "portuguese": "Português (Brasil)",
+    "english": "English (US)",
+    "portugueseDescription": "Interface em português",
+    "englishDescription": "App interface in English",
+    "theme": "Tema",
+    "light": "Claro",
+    "dark": "Escuro",
+    "lightDescription": "Interface em modo claro",
+    "darkDescription": "Interface em modo escuro",
+    "notifications": "Notificações do Verso Diário",
+    "notificationsDescription": "Receba notificações quando o verso diário estiver disponível",
+    "whenReceiveNotification": "Quando receber a notificação?",
+    "instantly": "Instantaneamente",
+    "instantlyDescription": "Receba assim que o verso estiver disponível",
+    "scheduled": "Em horário agendado",
+    "scheduledDescription": "Escolha um horário específico",
+    "notificationTime": "Horário da notificação",
+    "chooseTime": "Escolha o horário",
+    "logout": "Sair",
+    "logoutDescription": "Fazer logout da sua conta"
+  },
+  "saved": {
+    "title": "Versículos Salvos",
+    "subtitle": "Seus versículos favoritos em um só lugar",
+    "dailyVerses": "Versos Diários",
+    "searchVerses": "Versos Pesquisados",
+    "noDailyVerses": "Nenhum verso diário salvo ainda.",
+    "noSearchVerses": "Nenhum versículo pesquisado salvo ainda.",
+    "removedSuccess": "Verso diário removido dos favoritos!",
+    "verseRemovedSuccess": "Versículo removido dos favoritos!",
+    "removeError": "Erro ao remover verso diário",
+    "verseRemoveError": "Erro ao remover versículo",
+    "shareError": "Erro ao compartilhar versículo"
+  },
+  "devotional": {
+    "dailyDevotional": "Devocional Diário",
+    "loadingDevotional": "Carregando devocional...",
+    "noDevotionalAvailable": "Nenhum devocional disponível",
+    "fetchDevotionalMessage": "Toque no botão acima para buscar o devocional do dia",
+    "updateManually": "Atualizar Manualmente (Teste)",
+    "updateSuccess": "Devocional atualizado com sucesso!",
+    "updateError": "Erro ao buscar devocional",
+    "shareError": "Erro ao compartilhar",
+    "removeSuccess": "Devocional removido dos salvos",
+    "saveSuccess": "Devocional salvo com sucesso!",
+    "saveError": "Erro ao salvar/remover devocional"
+  },
+  "todos": {
+    "title": "Lista de Tarefas",
+    "addTask": "Adicionar uma nova tarefa...",
+    "loading": "Carregando tarefas...",
+    "noTodos": "Ainda não há tarefas",
+    "noTodosDescription": "Adicione sua primeira tarefa para começar!",
+    "deleteTodo": "Excluir Tarefa",
+    "deleteConfirm": "Tem certeza de que deseja excluir esta tarefa?"
+  },
+  "tabs": {
+    "home": "Início",
+    "search": "Buscar",
+    "saved": "Salvos",
+    "settings": "Configurações"
+  },
+  "months": {
+    "jan": "Jan",
+    "feb": "Fev",
+    "mar": "Mar",
+    "apr": "Abr",
+    "may": "Mai",
+    "jun": "Jun",
+    "jul": "Jul",
+    "aug": "Ago",
+    "sep": "Set",
+    "oct": "Out",
+    "nov": "Nov",
+    "dec": "Dez"
+  },
+  "weekdays": {
+    "sunday": "Domingo",
+    "monday": "Segunda-feira",
+    "tuesday": "Terça-feira",
+    "wednesday": "Quarta-feira",
+    "thursday": "Quinta-feira",
+    "friday": "Sexta-feira",
+    "saturday": "Sábado"
+  }
+}
+
+
