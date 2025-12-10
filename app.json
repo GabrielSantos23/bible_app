@@ -1,6 +1,7 @@
 {
   "plugins": [
-    "expo-build-properties"
+    "expo-build-properties",
+    "@bacons/apple-targets"
   ],
   "ios": {
     "bundleIdentifier": "com.anonymous.teste-final-bible"
