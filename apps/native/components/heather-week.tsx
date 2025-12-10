@@ -2,11 +2,11 @@ import React from "react";
 import { View, Text, Platform, Pressable } from "react-native";
 import { BlurView } from "expo-blur";
 import { LinearGradient } from "expo-linear-gradient";
-import Svg, { Circle } from "react-native-svg";
 import { useThemeColor } from "heroui-native";
 import { GlassView } from "expo-glass-effect";
 import { useAppTheme } from "@/contexts/app-theme-context";
-import { Flame, Check } from "lucide-react-native";
+import { Flame, Check, Menu } from "lucide-react-native";
+import { CircularGauge } from "@/components/CircularGauge";
 
 type WeekDay = {
   date: string;
@@ -23,7 +23,6 @@ type Props = {
 };
 
 export default function HeatherWeek({ week, isLoading, onPressStats, currentStreak = 0 }: Props) {
-  const themeColorPrimary = useThemeColor("primary" as any);
   const { isDark } = useAppTheme();
 
   const androidGradientColors: [string, string] = isDark
@@ -96,7 +95,7 @@ export default function HeatherWeek({ week, isLoading, onPressStats, currentStre
             onPress={onPressStats}
             className="w-12 h-12 bg-foreground/10 rounded-full items-center justify-center"
           >
-            <Flame color={isDark ? "#ffffff" : "#000000"} />
+            <Menu color={isDark ? "#ffffff" : "#000000"} />
           </Pressable>
 
           <View className="flex-1 flex-row justify-between px-4">
@@ -113,32 +112,20 @@ export default function HeatherWeek({ week, isLoading, onPressStats, currentStre
             ))}
           </View>
 
-          <Pressable onPress={onPressStats} className="w-12 h-12 items-center justify-center relative">
-            <Svg width="48" height="48" viewBox="0 0 48 48" className="-rotate-90">
-              <Circle
-                cx="24"
-                cy="24"
-                r="20"
-                stroke="rgba(255,255,255,0.1)"
-                strokeWidth="4"
-                fill="transparent"
-              />
-              <Circle
-                cx="24"
-                cy="24"
-                r="20"
-                stroke={themeColorPrimary}
-                strokeWidth="4"
-                fill="transparent"
-                strokeDasharray="125.6"
-                strokeDashoffset={Math.max(0, 125.6 - Math.min(currentStreak, 7) * (125.6 / 7))}
-                strokeLinecap="round"
-              />
-            </Svg>
-            <Text className="text-white font-bold text-xs" style={{ position: "absolute" }}>
-              {isLoading ? "--" : currentStreak}
-            </Text>
-            <View className="absolute top-[3px] right-[10px] w-1.5 h-1.5 bg-white rounded-full shadow-sm" />
+          <Pressable onPress={onPressStats} className="w-12 h-12 items-center justify-center">
+            <CircularGauge
+              value={isLoading ? 0 : Math.min(currentStreak, 7)}
+              max={7}
+              radius={24}
+              strokeWidth={4}
+              activeColor={"#22c55e"}
+              backgroundColor="rgba(255,255,255,0.1)"
+              thumbColor="#ffffff"
+              showCenterText={true}
+              centerTextColor="#ffffff"
+              centerTextSize={12}
+              showLabel={false}
+            />
           </Pressable>
         </BlurView>
 
@@ -171,7 +158,7 @@ function DayItem({
 
   return (
     <View
-      className="items-center justify-center rounded-xl w-[34px] py-2 relative"
+      className="items-center justify-center rounded-xl w-[30px] py-2 relative"
       style={{
         backgroundColor: hasLogin ? "rgba(255,255,255,0.18)" : "transparent",
         borderWidth: isToday ? 1 : 0,

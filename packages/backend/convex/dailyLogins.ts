@@ -257,12 +257,168 @@ export const getLoginStats = query({
 		}
 		longestStreak = Math.max(longestStreak, streak);
 
+		// Calculate average logins per day
+		// Get the first login date and today
+		let averageLoginsPerDay = 0;
+		if (uniqueDates.length > 0) {
+			const firstLoginDate = normalizeDateString(uniqueDates[uniqueDates.length - 1]);
+			const todayDate = new Date();
+			const daysSinceFirstLogin = Math.max(
+				1,
+				Math.ceil((todayDate.getTime() - firstLoginDate.getTime()) / ONE_DAY_MS)
+			);
+			averageLoginsPerDay = uniqueDates.length / daysSinceFirstLogin;
+		}
+
 		return {
 			totalLogins: uniqueDates.length,
 			currentStreak,
 			longestStreak,
 			lastLoginDate: uniqueDates[0] ?? null,
+			averageLoginsPerDay,
 		};
 	},
 });
 
+/**
+ * Compara a semana atual com a semana anterior
+ * Retorna dados detalhados de cada semana, contagens e intervalos formatados
+ */
+export const getWeeklyComparison = query({
+	args: {},
+	handler: async (ctx) => {
+		const user = await authComponent.getAuthUser(ctx);
+		if (!user) {
+			return {
+				currentWeek: [],
+				previousWeek: [],
+				currentWeekCount: 0,
+				previousWeekCount: 0,
+				currentWeekStart: null as string | null,
+				currentWeekEnd: null as string | null,
+				previousWeekStart: null as string | null,
+				previousWeekEnd: null as string | null,
+				currentWeekFormatted: null as string | null,
+				previousWeekFormatted: null as string | null,
+			};
+		}
+
+		const userId = user._id.toString();
+		const today = new Date();
+		const todayString = formatLocalDate(today);
+
+		// Calcula o início da semana atual (domingo)
+		const dayOfWeek = today.getDay(); // 0 = domingo, 1 = segunda, etc.
+		const startOfCurrentWeek = new Date(today);
+		startOfCurrentWeek.setDate(today.getDate() - dayOfWeek);
+		startOfCurrentWeek.setHours(0, 0, 0, 0);
+
+		// Calcula o fim da semana atual (sábado)
+		const endOfCurrentWeek = new Date(startOfCurrentWeek);
+		endOfCurrentWeek.setDate(startOfCurrentWeek.getDate() + 6);
+		endOfCurrentWeek.setHours(23, 59, 59, 999);
+
+		// Calcula o início da semana anterior
+		const startOfPreviousWeek = new Date(startOfCurrentWeek);
+		startOfPreviousWeek.setDate(startOfCurrentWeek.getDate() - 7);
+
+		// Calcula o fim da semana anterior
+		const endOfPreviousWeek = new Date(startOfPreviousWeek);
+		endOfPreviousWeek.setDate(startOfPreviousWeek.getDate() + 6);
+		endOfPreviousWeek.setHours(23, 59, 59, 999);
+
+		const startCurrentString = formatLocalDate(startOfCurrentWeek);
+		const endCurrentString = formatLocalDate(endOfCurrentWeek);
+		const startPreviousString = formatLocalDate(startOfPreviousWeek);
+		const endPreviousString = formatLocalDate(endOfPreviousWeek);
+
+		// Busca todos os logins do usuário
+		const logins = await ctx.db
+			.query("dailyLogins")
+			.withIndex("by_userId", (q) => q.eq("userId", userId))
+			.order("desc")
+			.collect();
+
+		const loginDates = new Set(logins.map((login) => login.date));
+
+		// Helper para formatar intervalo de datas
+		const formatDateInterval = (start: string, end: string): string => {
+			const startDate = normalizeDateString(start);
+			const endDate = normalizeDateString(end);
+			
+			const startMonth = startDate.toLocaleDateString("en-US", { month: "short" });
+			const startDay = startDate.getDate();
+			const endMonth = endDate.toLocaleDateString("en-US", { month: "short" });
+			const endDay = endDate.getDate();
+			
+			if (startMonth === endMonth) {
+				return `${startMonth} ${startDay} - ${endDay}`;
+			}
+			return `${startMonth} ${startDay} - ${endMonth} ${endDay}`;
+		};
+
+		// Gera dados da semana atual
+		const currentWeek: {
+			date: string;
+			label: string;
+			hasLogin: boolean;
+			isToday: boolean;
+		}[] = [];
+
+		for (let i = 0; i < 7; i++) {
+			const current = new Date(startOfCurrentWeek.getTime() + i * ONE_DAY_MS);
+			const dateString = formatLocalDate(current);
+			const label = current
+				.toLocaleDateString("en-US", { weekday: "short" })
+				.slice(0, 2)
+				.toUpperCase();
+
+			currentWeek.push({
+				date: dateString,
+				label,
+				hasLogin: loginDates.has(dateString),
+				isToday: dateString === todayString,
+			});
+		}
+
+		// Gera dados da semana anterior
+		const previousWeek: {
+			date: string;
+			label: string;
+			hasLogin: boolean;
+			isToday: boolean;
+		}[] = [];
+
+		for (let i = 0; i < 7; i++) {
+			const current = new Date(startOfPreviousWeek.getTime() + i * ONE_DAY_MS);
+			const dateString = formatLocalDate(current);
+			const label = current
+				.toLocaleDateString("en-US", { weekday: "short" })
+				.slice(0, 2)
+				.toUpperCase();
+
+			previousWeek.push({
+				date: dateString,
+				label,
+				hasLogin: loginDates.has(dateString),
+				isToday: false,
+			});
+		}
+
+		const currentWeekCount = currentWeek.filter((d) => d.hasLogin).length;
+		const previousWeekCount = previousWeek.filter((d) => d.hasLogin).length;
+
+		return {
+			currentWeek,
+			previousWeek,
+			currentWeekCount,
+			previousWeekCount,
+			currentWeekStart: startCurrentString,
+			currentWeekEnd: endCurrentString,
+			previousWeekStart: startPreviousString,
+			previousWeekEnd: endPreviousString,
+			currentWeekFormatted: formatDateInterval(startCurrentString, endCurrentString),
+			previousWeekFormatted: formatDateInterval(startPreviousString, endPreviousString),
+		};
+	},
+});

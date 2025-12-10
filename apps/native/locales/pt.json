@@ -12,7 +12,9 @@
     "home": "Início",
     "search": "Buscar",
     "settings": "Configurações",
-    "user": "Usuário"
+    "user": "Usuário",
+    "today": "Hoje",
+    "yesterday": "Ontem"
   },
   "auth": {
     "signIn": "Entrar",
@@ -137,6 +139,41 @@
     "thursday": "Quinta-feira",
     "friday": "Sexta-feira",
     "saturday": "Sábado"
+  },
+  "stats": {
+    "streak": "Sequência",
+    "streakDays": "Dias",
+    "weekStreak": "Sequência da Semana",
+    "currentStreak": "Sequência Atual",
+    "longestStreak": "Maior Sequência",
+    "averageLogins": "Média por Dia",
+    "lastLogin": "Última Entrada",
+    "yourStats": "Suas estatísticas",
+    "days": "Dias",
+    "never": "Nunca",
+    "motivational": {
+      "day0": "Comece sua jornada hoje! 🌱",
+      "day1": "Primeiro passo dado! Continue assim! 💪",
+      "day2": "Dois dias seguidos! Você consegue! 🔥",
+      "day3": "Três dias! O hábito está se formando! ⭐",
+      "day4": "Quatro dias! Sua dedicação impressiona! 🌟",
+      "day5": "Cinco dias! Você está no caminho certo! 🚀",
+      "day6": "Seis dias! Quase uma semana completa! 💎",
+      "day7": "Uma semana inteira! Parabéns! 🎉",
+      "week2": "Mais de uma semana! Incrível! 🏆",
+      "day14": "Duas semanas! Sua consistência é admirável! 🌈",
+      "week3": "Você está construindo um hábito sólido! 💪",
+      "day21": "21 dias! O hábito está consolidado! 🎯",
+      "almostMonth": "Quase um mês! Sua perseverança é inspiradora! ✨",
+      "day30": "Um mês completo! Você é extraordinário! 🏅",
+      "month2": "Mais de um mês! Imparável! 🔥",
+      "day60": "Dois meses! Sua disciplina é exemplar! 👑",
+      "month3": "Sua jornada é uma verdadeira inspiração! 🌟",
+      "day90": "Três meses! Você é uma lenda! 🦸",
+      "day100": "100 dias! Simplesmente fenomenal! 🎊",
+      "beyond100": "{{days}} dias de pura dedicação! Lendário! 👑",
+      "default": "Continue sua jornada incrível! 🌟"
+    }
   }
 }
 

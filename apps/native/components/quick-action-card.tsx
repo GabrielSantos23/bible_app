@@ -16,7 +16,7 @@ export default function QuickActionCard({ title, description, icon, onPress }: P
 
   return (
     <Pressable onPress={onPress} className="w-full mb-4">
-      <Card className="shadow-2xl bg-card border-popover rounded-2xl">
+      <Card className="shadow-2xl bg-card border border-foreground/10 rounded-2xl">
         <View className="flex-row items-center justify-between">
           <View className="flex-1">
             <Text className="text-foreground text-lg font-bold mb-1">
@@ -29,17 +29,10 @@ export default function QuickActionCard({ title, description, icon, onPress }: P
             )}
           </View>
           <View
-            style={{
-              backgroundColor: themeColorPrimary,
-              borderRadius: 20,
-              width: 48,
-              height: 48,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+          className=" rounded-full p-0.5"
           >
             {icon}
-          </View>
+          </View> 
         </View>
       </Card>
     </Pressable>

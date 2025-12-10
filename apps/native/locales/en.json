@@ -12,7 +12,9 @@
     "home": "Home",
     "search": "Search",
     "settings": "Settings",
-    "user": "User"
+    "user": "User",
+    "today": "Today",
+    "yesterday": "Yesterday"
   },
   "auth": {
     "signIn": "Sign In",
@@ -137,6 +139,41 @@
     "thursday": "Thursday",
     "friday": "Friday",
     "saturday": "Saturday"
+  },
+  "stats": {
+    "streak": "Streak",
+    "streakDays": "Days",
+    "weekStreak": "Week Streak",
+    "currentStreak": "Current Streak",
+    "longestStreak": "Longest Streak",
+    "averageLogins": "Average per Day",
+    "lastLogin": "Last Login",
+    "yourStats": "Your stats",
+    "days": "Days",
+    "never": "Never",
+    "motivational": {
+      "day0": "Start your journey today! 🌱",
+      "day1": "First step taken! Keep it up! 💪",
+      "day2": "Two days in a row! You can do it! 🔥",
+      "day3": "Three days! The habit is forming! ⭐",
+      "day4": "Four days! Your dedication is impressive! 🌟",
+      "day5": "Five days! You're on the right track! 🚀",
+      "day6": "Six days! Almost a full week! 💎",
+      "day7": "A whole week! Congratulations! 🎉",
+      "week2": "Over a week! Amazing! 🏆",
+      "day14": "Two weeks! Your consistency is admirable! 🌈",
+      "week3": "You're building a solid habit! 💪",
+      "day21": "21 days! The habit is established! 🎯",
+      "almostMonth": "Almost a month! Your perseverance is inspiring! ✨",
+      "day30": "A full month! You're extraordinary! 🏅",
+      "month2": "Over a month! Unstoppable! 🔥",
+      "day60": "Two months! Your discipline is exemplary! 👑",
+      "month3": "Your journey is truly inspiring! 🌟",
+      "day90": "Three months! You're a legend! 🦸",
+      "day100": "100 days! Simply phenomenal! 🎊",
+      "beyond100": "{{days}} days of pure dedication! Legendary! 👑",
+      "default": "Keep up your incredible journey! 🌟"
+    }
   }
 }
 

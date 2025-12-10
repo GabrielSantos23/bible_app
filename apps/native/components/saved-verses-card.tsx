@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Platform, Pressable } from "react-native";
 import { Card, useThemeColor } from "heroui-native";
 import { useAppTheme } from "@/contexts/app-theme-context";
-import { Heart, ArrowRight } from "lucide-react-native";
+import { Heart, ArrowRight, ChevronRight } from "lucide-react-native";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "convex/react";
 import { api } from "@teste-final-bible/backend/convex/_generated/api";
@@ -13,7 +13,6 @@ type Props = {
 };
 
 export default function SavedVersesCard({ maxItems = 3 }: Props) {
-  const themeColorPrimary = useThemeColor("primary" as any);
   const foregroundColor = useThemeColor("foreground");
   const { isDark } = useAppTheme();
   const { t } = useTranslation();
@@ -35,7 +34,7 @@ export default function SavedVersesCard({ maxItems = 3 }: Props) {
       onPress={() => router.push("/(auth)/(tabs)/saved")}
       className={`w-full  ${Platform.OS === "ios" ? "mb-15" : "mb-5"}`}
     >
-      <Card className="shadow-2xl bg-card border-popover rounded-2xl">
+      <Card className="shadow-2xl bg-card border border-foreground/10 rounded-2xl">
         <View>
             {/* Header */}
             <View className="flex-row items-center justify-between mb-4">
@@ -58,20 +57,9 @@ export default function SavedVersesCard({ maxItems = 3 }: Props) {
                 </Text>
               </View>
               <View
-                style={{
-                  backgroundColor: themeColorPrimary,
-                  borderRadius: 20,
-                  width: 48,
-                  height: 48,
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Heart 
-                  size={24} 
-                  color={isDark ? "#000" : "#fff"} 
-                  fill={isDark ? "#000" : "#fff"} 
-                />
+                className="rounded-full p-0.5 "
+                >
+                  <ChevronRight size={20} color={isDark ? "#ffffff" : "#000000"} />
               </View>
             </View>
 
@@ -117,11 +105,11 @@ export default function SavedVersesCard({ maxItems = 3 }: Props) {
                   <View className="flex-row items-center justify-end pt-2">
                     <Text
                       className="text-sm font-semibold mr-2"
-                      style={{ color: themeColorPrimary }}
+                      style={{ color: isDark ? "#ffffff" : "#000000" }}
                     >
                       {t("home.seeAll", "Ver todos")}
                     </Text>
-                    <ArrowRight size={16} color={themeColorPrimary} />
+                    <ArrowRight size={16} color={isDark ? "#ffffff" : "#000000"} />
                   </View>
                 )}
               </View>

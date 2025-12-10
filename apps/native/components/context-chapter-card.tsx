@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Pressable } from "react-native";
 import { Card, useThemeColor } from "heroui-native";
 import { useAppTheme } from "@/contexts/app-theme-context";
-import { ArrowUpRight } from "lucide-react-native";
+import { ArrowUpRight, ChevronRight } from "lucide-react-native";
 import { useTranslation } from "react-i18next";
 
 type Props = {
@@ -13,24 +13,20 @@ type Props = {
 };
 
 export default function ContextChapterCard({ devotional, onPress }: Props) {
-  const themeColorPrimary = useThemeColor("primary" as any);
   const { isDark } = useAppTheme();
   const { t } = useTranslation();
 
   return (
     <Pressable onPress={onPress} className="w-full mb-4 mt-4">
-      <Card className="shadow-2xl bg-card border-popover rounded-2xl">
-        <View className="flex-col gap-y-3 text-foreground">
-          <View className="flex-row justify-between">
-            <Text className="text-foreground">
+      <Card className="shadow-2xl bg-card  border border-foreground/10 rounded-2xl">
+        <View className="flex-row gap-y-3 text-foreground justify-between items-center">
+          <View className="flex-col gap-y-1">
+
+          <Text className="text-foreground font-bold text-lg">
               {t('home.contextChapter', "Contexto do Capítulo")}
             </Text>
-            <View className="bg-primary rounded-full p-0.5">
-              <ArrowUpRight size={20} color={"black"} />
-            </View>
-          </View>
           {devotional ? (
-            <Text className="text-foreground">
+            <Text className="text-foreground ">
               {t('home.whatDoesMean', { reference: devotional?.reference }, `O que significa ${devotional?.reference}?`)}
             </Text>
           ) : (
@@ -38,6 +34,10 @@ export default function ContextChapterCard({ devotional, onPress }: Props) {
               {t('home.loadingDevotional', "Carregando devocional...")}
             </Text>
           )}
+          </View>
+          <View className=" rounded-full p-0.5">
+              <ChevronRight size={20} color={isDark ? "#ffffff" : "#000000"} />
+            </View>
         </View>
       </Card>
     </Pressable>

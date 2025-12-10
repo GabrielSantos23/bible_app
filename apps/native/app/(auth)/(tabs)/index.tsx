@@ -13,7 +13,7 @@ import WeeklyProgressCard from "@/components/weekly-progress-card";
 import QuickActionCard from "@/components/quick-action-card";
 import SavedVersesCard from "@/components/saved-verses-card";
 import ContextChapterCard from "@/components/context-chapter-card";
-import { Search } from "lucide-react-native";
+import { ChevronRight, Search } from "lucide-react-native";
 
 const HEADER_HEIGHT = 180;
 
@@ -95,7 +95,7 @@ export default function Home() {
         <QuickActionCard
           title={t('home.searchVerse', "Buscar Verso")}
           description={t('home.searchVerseDescription', "Encontre versículos na Bíblia")}
-          icon={<Search size={24} color={isDark ? "#000" : "#fff"} />}
+          icon={<ChevronRight size={20} color={isDark ? "#ffffff" : "#000000"} />}
           onPress={() => router.push("/(auth)/(tabs)/two")}
         />
         
